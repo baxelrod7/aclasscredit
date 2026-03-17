@@ -2,7 +2,6 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Link } from "react-router-dom";
 import logo from "@/assets/logo.png";
 
 const navLinks = [
@@ -19,9 +18,9 @@ const Navbar = () => {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-navy-dark/90 backdrop-blur-md border-b border-accent/10">
       <div className="container mx-auto flex items-center justify-between h-[9.5rem] px-4">
-        <Link to="/" className="flex items-center">
+        <a href="/" className="flex items-center">
           <img src={logo} alt="A Class Credit" className="h-36 w-auto" />
-        </Link>
+        </a>
 
         {/* Desktop */}
         <div className="hidden md:flex items-center gap-6">
@@ -34,11 +33,11 @@ const Navbar = () => {
               {l.label}
             </a>
           )}
-          <Link to="/dashboard">
+          <a href="https://www.secureclientaccess.com/" target="_blank" rel="noopener noreferrer">
             <Button variant="gold" size="sm">
               Start My Credit Plan
             </Button>
-          </Link>
+          </a>
         </div>
 
         {/* Mobile toggle */}
@@ -67,11 +66,11 @@ const Navbar = () => {
                   {l.label}
                 </a>
             )}
-              <Link to="/dashboard" onClick={() => setOpen(false)}>
+              <a href="https://www.secureclientaccess.com/" target="_blank" rel="noopener noreferrer" onClick={() => setOpen(false)}>
                 <Button variant="gold" size="sm" className="mt-2 w-full">
                   Start My Credit Plan
                 </Button>
-              </Link>
+              </a>
             </div>
           </motion.div>
         }
