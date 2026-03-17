@@ -1,0 +1,96 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=DM+Sans:wght@300;400;500;600;700&display=swap');
+
+@layer base {
+  :root {
+    --background: 220 50% 5%;
+    --foreground: 0 0% 100%;
+
+    --card: 220 40% 8%;
+    --card-foreground: 0 0% 100%;
+
+    --popover: 220 40% 8%;
+    --popover-foreground: 0 0% 100%;
+
+    --primary: 168 80% 45%;
+    --primary-foreground: 220 50% 5%;
+
+    --secondary: 220 30% 12%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 220 30% 14%;
+    --muted-foreground: 210 10% 75%;
+
+    --accent: 168 80% 45%;
+    --accent-foreground: 220 50% 5%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 220 30% 15%;
+    --input: 220 30% 15%;
+    --ring: 168 80% 45%;
+
+    --radius: 0.625rem;
+
+    --gold: 168 80% 45%;
+    --gold-light: 168 60% 60%;
+    --gold-dark: 168 90% 32%;
+    --navy: 220 50% 8%;
+    --navy-light: 220 35% 15%;
+    --navy-dark: 220 55% 4%;
+
+    --gradient-gold: linear-gradient(135deg, hsl(168, 80%, 45%), hsl(168, 90%, 32%));
+    --gradient-navy: linear-gradient(135deg, hsl(220, 50%, 8%), hsl(220, 55%, 4%));
+    --gradient-hero: linear-gradient(160deg, hsl(220, 55%, 4%) 0%, hsl(220, 50%, 8%) 50%, hsl(220, 35%, 15%) 100%);
+
+    --shadow-gold: 0 6px 30px -2px hsl(168 80% 45% / 0.45), 0 2px 12px -2px hsl(168 80% 45% / 0.3);
+    --shadow-card: 0 4px 24px -6px hsl(0 0% 0% / 0.3);
+    --shadow-card-hover: 0 8px 32px -6px hsl(168 80% 45% / 0.15);
+
+    --sidebar-background: 220 50% 6%;
+    --sidebar-foreground: 210 20% 85%;
+    --sidebar-primary: 168 80% 45%;
+    --sidebar-primary-foreground: 220 50% 5%;
+    --sidebar-accent: 220 30% 12%;
+    --sidebar-accent-foreground: 210 20% 85%;
+    --sidebar-border: 220 30% 15%;
+    --sidebar-ring: 168 80% 45%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display;
+  }
+}
+
+@layer utilities {
+  .text-gradient-gold {
+    background: linear-gradient(90deg, hsl(180, 80%, 50%), hsl(150, 90%, 45%));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .bg-hero-gradient {
+    background: var(--gradient-hero);
+  }
+  .shadow-gold {
+    box-shadow: var(--shadow-gold);
+  }
+  .shadow-card {
+    box-shadow: var(--shadow-card);
+  }
+  .shadow-card-hover {
+    box-shadow: var(--shadow-card-hover);
+  }
+}
