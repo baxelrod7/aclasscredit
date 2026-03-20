@@ -134,11 +134,31 @@ const ServicesSection = () => {
                 <span className="text-muted-foreground text-sm font-medium leading-tight">Per Month</span>
               </div>
             )}
-            <a href="https://aclasscredit.getcredithelpnow.com/start" target="_blank" rel="noopener noreferrer">
-              <Button variant={tier.highlight ? "hero" : "gold"} className="mt-8 w-full">
-                Get Started
-              </Button>
-            </a>
+            <a 
+  onClick={() => {
+    const container = document.getElementById("crc-client-signup-widget");
+    if (container && !container.querySelector('.crc-widget-button')) {
+      const script = document.createElement("script");
+      script.src = "https://app.creditrepaircloud.com/app/widget.umd.cjs";
+      script.async = true;
+      script.onload = () => {
+        if (window.createWidget) {
+          window.createWidget({
+            containerId: "crc-client-signup-widget",
+            url: "https://aclasscredit.getcredithelpnow.com/billing"
+          });
+        }
+      };
+      document.body.appendChild(script);
+    }
+  }}
+  className="cursor-pointer"
+>
+  <Button variant={tier.highlight ? "hero" : "gold"} className="mt-8 w-full">
+    Get Started
+  </Button>
+</a>
+
           </motion.div>
         )}
       </div>
@@ -173,9 +193,9 @@ const ServicesSection = () => {
                 <span className="text-muted-foreground text-sm font-medium leading-tight whitespace-pre-line">{tier.priceLabel}</span>
               </div>
             )}
-            <a href="https://aclasscredit.getcredithelpnow.com/start" target="_blank" rel="noopener noreferrer">
+            <a href="" target="_blank" rel="noopener noreferrer">
               <Button variant="gold" className="mt-8 w-full">
-                Get Started
+                Coming Soon
               </Button>
             </a>
           </motion.div>
@@ -263,9 +283,9 @@ const ServicesSection = () => {
           </div>
 
           <div className="text-center mt-8">
-            <a href="https://aclasscredit.getcredithelpnow.com/start" target="_blank" rel="noopener noreferrer">
+            <a href="" target="_blank" rel="noopener noreferrer">
               <Button variant="hero" className="px-10">
-                Get Started
+                Coming Soon
               </Button>
             </a>
           </div>
