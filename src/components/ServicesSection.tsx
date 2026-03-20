@@ -77,6 +77,32 @@ const bottomTiers = [
 ];
 
 const ServicesSection = () => {
+
+  // Load the CRC widget script once on mount
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.src = "https://app.creditrepaircloud.com/app/widget.umd.cjs";
+    script.async = true;
+    script.onload = () => {
+      if (window.createWidget) {
+        window.createWidget({
+          containerId: "crc-client-signup-widget",
+          url: "https://aclasscredit.getcredithelpnow.com/billing",
+          color: "#181B19",
+        });
+      }
+    };
+    document.body.appendChild(script);
+  }, []);
+
+  // Handler to proxy-click the widget's internal button
+  const handleGetStarted = () => {
+    const widgetBtn = document
+      .getElementById("crc-client-signup-widget")
+      ?.querySelector("button, a");
+    if (widgetBtn) (widgetBtn as HTMLElement).click();
+  };
+
   return (
   <section id="services" className="py-24 bg-background">
     <div className="container mx-auto px-4">
@@ -123,42 +149,18 @@ const ServicesSection = () => {
                 </li>
               )}
             </ul>
-            {tier.price ? (
-              <div className="flex items-baseline justify-center gap-2 mt-6">
-                <span className="text-white font-extrabold text-4xl">${tier.price}</span>
-                <span className="text-muted-foreground text-sm font-medium leading-tight">Per Month</span>
-              </div>
-            ) : (
-              <div className="flex items-baseline justify-center gap-2 mt-6">
-                <span className="text-white font-extrabold text-4xl">$180</span>
-                <span className="text-muted-foreground text-sm font-medium leading-tight">Per Month</span>
-              </div>
-            )}
-            <a 
-  onClick={() => {
-    const container = document.getElementById("crc-client-signup-widget");
-    if (container && !container.querySelector('.crc-widget-button')) {
-      const script = document.createElement("script");
-      script.src = "https://app.creditrepaircloud.com/app/widget.umd.cjs";
-      script.async = true;
-      script.onload = () => {
-        if (window.createWidget) {
-          window.createWidget({
-            containerId: "crc-client-signup-widget",
-            url: "https://aclasscredit.getcredithelpnow.com/billing"
-          });
-        }
-      };
-      document.body.appendChild(script);
-    }
-  }}
-  className="cursor-pointer"
->
-  <Button variant={tier.highlight ? "hero" : "gold"} className="mt-8 w-full">
-    Get Started
-  </Button>
-</a>
-
+            {/* FIX: Removed extra $ prefix — tier.price already contains the $ sign */}
+            <div className="flex items-baseline justify-center gap-2 mt-6">
+              <span className="text-white font-extrabold text-4xl">{tier.price}</span>
+              <span className="text-muted-foreground text-sm font-medium leading-tight">Per Month</span>
+            </div>
+            <Button
+              variant={tier.highlight ? "hero" : "gold"}
+              className="mt-8 w-full"
+              onClick={handleGetStarted}
+            >
+              Get Started
+            </Button>
           </motion.div>
         )}
       </div>
@@ -267,7 +269,7 @@ const ServicesSection = () => {
               <div key={tier.label} className="bg-navy-light/50 rounded-xl p-5">
                 <h4 className="font-bold text-lg text-white mb-2">{tier.label}</h4>
                 <div className="flex items-baseline gap-1 mb-4">
-                  <span className="text-3xl font-extrabold text-white">${tier.price}</span>
+                  <span className="text-3xl font-extrabold text-white">{tier.price}</span>
                   <span className="text-white/60 text-sm">/{tier.period}</span>
                 </div>
                 <ul className="space-y-2">
@@ -291,6 +293,10 @@ const ServicesSection = () => {
           </div>
         </div>
       </motion.div>
+
+      {/* Hidden CRC widget mount point */}
+      <div id="crc-client-signup-widget" style={{ display: "none" }} />
+
     </div>
   </section>
   );
