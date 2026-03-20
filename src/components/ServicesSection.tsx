@@ -195,11 +195,11 @@ const ServicesSection = () => {
                 <span className="text-muted-foreground text-sm font-medium leading-tight whitespace-pre-line">{tier.priceLabel}</span>
               </div>
             )}
-            <a href="" target="_blank" rel="noopener noreferrer">
+            
               <Button variant="gold" className="mt-8 w-full">
                 Coming Soon
               </Button>
-            </a>
+            
           </motion.div>
         )}
       </div>
@@ -285,11 +285,11 @@ const ServicesSection = () => {
           </div>
 
           <div className="text-center mt-8">
-            <a href="" target="_blank" rel="noopener noreferrer">
+            
               <Button variant="hero" className="px-10">
                 Coming Soon
               </Button>
-            </a>
+            
           </div>
         </div>
       </motion.div>
