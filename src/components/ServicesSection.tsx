@@ -1,6 +1,54 @@
+import { useEffect } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Check } from "lucide-react";
+
+// Widget script loader
+const useCreditRepairCloudWidget = () => {
+  useEffect(() => {
+    // Check if widget script already exists
+    if (document.getElementById("crc-widget-script")) return;
+
+    // Create and append the script
+    const script = document.createElement("script");
+    script.id = "crc-widget-script";
+    script.src = "https://app.creditrepaircloud.com/app/widget.umd.cjs";
+    script.async = true;
+    document.body.appendChild(script);
+
+    // Initialize widget after script loads
+    script.onload = () => {
+      if (window.createWidget) {
+        window.createWidget({
+          text: "Sign Up For $0 Today",
+          color: "#6366f1", // Use site's accent color
+          containerId: "crc-widget-widget1",
+          url: "https://aclasscredit.getcredithelpnow.com/billing"
+        });
+        window.createWidget({
+          text: "Sign Up For $0 Today",
+          color: "#6366f1",
+          containerId: "crc-widget-widget2",
+          url: "https://aclasscredit.getcredithelpnow.com/billing"
+        });
+        window.createWidget({
+          text: "Sign Up For $0 Today",
+          color: "#6366f1",
+          containerId: "crc-widget-widget3",
+          url: "https://aclasscredit.getcredithelpnow.com/billing"
+        });
+      }
+    };
+
+    return () => {
+      // Cleanup on unmount
+      const existingScript = document.getElementById("crc-widget-script");
+      if (existingScript) {
+        existingScript.remove();
+      }
+    };
+  }, []);
+};
 
 const tiers = [
 {
@@ -67,7 +115,10 @@ const bottomTiers = [
   },
 ];
 
-const ServicesSection = () =>
+const ServicesSection = () => {
+  useCreditRepairCloudWidget();
+
+  return (
   <section id="services" className="py-24 bg-background">
     <div className="container mx-auto px-4">
       <motion.div
@@ -132,11 +183,7 @@ const ServicesSection = () =>
                 <span className="text-muted-foreground text-sm font-medium leading-tight">Per Month</span>
               </div>
             )}
-            <a href="https://aclasscredit.getcredithelpnow.com/start" target="_blank" rel="noopener noreferrer">
-              <Button variant={tier.highlight ? "hero" : "gold"} className="mt-8 w-full">
-                Get Started
-              </Button>
-            </a>
+            <div id="crc-widget-widget1" className="mt-8 w-full min-h-[50px] flex items-center justify-center"></div>
           </motion.div>
         )}
       </div>
@@ -171,11 +218,7 @@ const ServicesSection = () =>
                 <span className="text-muted-foreground text-sm font-medium leading-tight whitespace-pre-line">{tier.priceLabel}</span>
               </div>
             )}
-            <a href="https://aclasscredit.getcredithelpnow.com/start" target="_blank" rel="noopener noreferrer">
-              <Button variant="gold" className="mt-8 w-full">
-                Get Started
-              </Button>
-            </a>
+            <div id="crc-widget-widget2" className="mt-8 w-full min-h-[50px] flex items-center justify-center"></div>
           </motion.div>
         )}
       </div>
@@ -272,11 +315,7 @@ const ServicesSection = () =>
           </div>
 
           <div className="text-center mt-8">
-            <a href="https://aclasscredit.getcredithelpnow.com/start" target="_blank" rel="noopener noreferrer">
-              <Button variant="hero" className="px-10">
-                Get Started
-              </Button>
-            </a>
+            <div id="crc-widget-widget3" className="inline-block min-h-[50px]"></div>
           </div>
         </div>
       </motion.div>
