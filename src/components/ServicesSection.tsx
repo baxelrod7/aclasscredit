@@ -132,9 +132,11 @@ const ServicesSection = () =>
                 <span className="text-muted-foreground text-sm font-medium leading-tight">Per Month</span>
               </div>
             )}
-            <Button variant={tier.highlight ? "hero" : "gold"} className="mt-8 w-full">
-              Get Started
-            </Button>
+            <a href="https://aclasscredit.getcredithelpnow.com/start" target="_blank" rel="noopener noreferrer">
+              <Button variant={tier.highlight ? "hero" : "gold"} className="mt-8 w-full">
+                Get Started
+              </Button>
+            </a>
           </motion.div>
         )}
       </div>
@@ -169,9 +171,11 @@ const ServicesSection = () =>
                 <span className="text-muted-foreground text-sm font-medium leading-tight whitespace-pre-line">{tier.priceLabel}</span>
               </div>
             )}
-            <Button variant="gold" className="mt-8 w-full">
-              Get Started
-            </Button>
+            <a href="https://aclasscredit.getcredithelpnow.com/start" target="_blank" rel="noopener noreferrer">
+              <Button variant="gold" className="mt-8 w-full">
+                Get Started
+              </Button>
+            </a>
           </motion.div>
         )}
       </div>
@@ -268,9 +272,11 @@ const ServicesSection = () =>
           </div>
 
           <div className="text-center mt-8">
-            <Button variant="hero" className="px-10">
-              Get Started
-            </Button>
+            <a href="https://aclasscredit.getcredithelpnow.com/start" target="_blank" rel="noopener noreferrer">
+              <Button variant="hero" className="px-10">
+                Get Started
+              </Button>
+            </a>
           </div>
         </div>
       </motion.div>
