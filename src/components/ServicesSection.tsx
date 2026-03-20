@@ -320,7 +320,9 @@ const ServicesSection = () => {
         </div>
       </motion.div>
     </div>
-  </section>;
+  </section>
+  );
+};
 
 
 export default ServicesSection;
