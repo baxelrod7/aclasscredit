@@ -36,10 +36,12 @@ const HeroSection = () =>
         </p>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <Button variant="hero" size="lg" className="text-base px-8 py-6">
-            Start My Credit Plan
-            <ArrowRight className="w-5 h-5 ml-1" />
-          </Button>
+          <a href="#services">
+            <Button variant="hero" size="lg" className="text-base px-8 py-6">
+              Start My Credit Plan
+              <ArrowRight className="w-5 h-5 ml-1" />
+            </Button>
+          </a>
           <Button variant="hero-outline" size="lg" className="text-base px-8 py-6">
             Book Consultation
           </Button>

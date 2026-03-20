@@ -33,7 +33,7 @@ const Navbar = () => {
               {l.label}
             </a>
           )}
-          <a href="https://www.secureclientaccess.com/" target="_blank" rel="noopener noreferrer">
+          <a href="#services">
             <Button variant="gold" size="sm">
               Start My Credit Plan
             </Button>
@@ -66,7 +66,7 @@ const Navbar = () => {
                   {l.label}
                 </a>
             )}
-              <a href="https://www.secureclientaccess.com/" target="_blank" rel="noopener noreferrer" onClick={() => setOpen(false)}>
+              <a href="#services" onClick={() => setOpen(false)}>
                 <Button variant="gold" size="sm" className="mt-2 w-full">
                   Start My Credit Plan
                 </Button>
