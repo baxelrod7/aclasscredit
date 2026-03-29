@@ -6,7 +6,7 @@ import { Check } from "lucide-react";
 const tiers = [
 {
   name: "Associate Degree - Credit Foundations",
-  tagline: "Education + AI Tools",
+  tagline: "Self-Guided Education + AI Tools",
   features: [
   "AI credit report analysis",
   "Score projection simulator",
@@ -19,25 +19,26 @@ const tiers = [
 },
 {
   name: "Bachelor's Degree - Credit Advancement",
-  tagline: "Full Coaching + Tools",
+  tagline: "Guided Credit Transformation + Disputes",
   features: [
   "Everything in Associate Degree",
   "Custom improvement roadmap",
   "Automated dispute letter engine",
   "24/7 AI agent support",
-  "Payment reminder scheduling",
-  "Credit GPA grading system"],
+  "Credit GPA grading system",
+  "Live agent support"],
   price: "$110",
   priceLabel: "Per Month",
   highlight: true,
 },
 {
   name: "Master's degree - Elite Credit Strategy",
-  tagline: "Advanced + Priority",
+  tagline: "Advanced Strategy + Wealth",
   features: [
   "Everything in Bachelor's Degree",
   "Classify budgeting with tax prep",
   "A Class Credit Approval Lab - loan readiness tool with GPA scoring system",
+  "Priority file handling",
   "Elite credit strategies",
   "Direct appointment booking"],
   price: "$180",
@@ -47,30 +48,46 @@ const tiers = [
 
 const bottomTiers = [
 {
-  name: "Continuing Ed Credit Courses",
-  tagline: "Choose Your Course",
+  name: "A Class Credit Flex Plan",
+  tagline: "Customize Your Credit Strategy — Stay in control of your credit journey — even after completing your program",
   features: [
   "Credit monitoring with ID theft protection",
   "A Class Credit Approval Lab - loan readiness tool with GPA scoring system",
   "Classify budgeting with tax prep",
   "24/7 AI credit coaching assistant",
   "Credit Coaching strategy sessions (1 per month by appointment)",],
-  price: "$100",
-  priceLabel: "Per Month",
+  price: "$109",
+  priceLabel: "Per Month\nPick Any 2 Services",
   highlight: false,
 },
 {
-  name: "B2B A Class Credit",
+  name: "A Class Credit Partner Program",
   tagline: "Realtors - Car Dealers - Loan Officers",
   features: [
   "A Class Credit Approval Lab - client loan readiness tool with GPA scoring system",
   "Classify budgeting with tax prep",
   ],
-  price: "$100",
+  price: "$109",
   priceLabel: "Per Month",
   highlight: false,
 },
 ];
+
+const CauseBadge = () => (
+  <TooltipProvider delayDuration={200}>
+    <Tooltip>
+      <TooltipTrigger asChild>
+        <span className="inline-flex items-center gap-1 rounded-full px-3 py-1 text-[11px] font-semibold tracking-wide cursor-pointer" style={{ background: '#EAF4FF', color: '#2563EB' }}>
+          <Heart className="w-3 h-3" />
+          Credit with A Cause
+        </span>
+      </TooltipTrigger>
+      <TooltipContent className="bg-foreground text-background text-xs font-semibold px-4 py-2">
+        $5 Per Month is YOUR Community Impact Contribution
+      </TooltipContent>
+    </Tooltip>
+  </TooltipProvider>
+);
 
 const ServicesSection = () => {
 
@@ -134,6 +151,7 @@ const ServicesSection = () => {
             <h3 className="font-display text-2xl font-bold text-secondary-foreground">{tier.name}</h3>
             {tier.tagline ? (
               <p className="text-sm mt-1 mb-6 text-muted-foreground">{tier.tagline}</p>
+			  <CauseBadge />
             ) : (
               <div className="mb-6" />
             )}
