@@ -32,7 +32,7 @@ const tiers = [
   highlight: true,
 },
 {
-  name: "Master's degree - Elite Credit Strategy",
+  name: "Master's Degree - Elite Credit Strategy",
   tagline: "Advanced Strategy + Wealth",
   features: [
   "Everything in Bachelor's Degree",
@@ -269,7 +269,7 @@ const ServicesSection = () => {
                 ],
               },
               {
-                label: "Business Credit Elit",
+                label: "Business Credit Elite",
                 price: "$150",
                 period: "Per Month",
                 features: [
